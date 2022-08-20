@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
     public static final String STUDENT_ID = "StudentID";
@@ -53,7 +53,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         Cursor cursorCourses = db.rawQuery("SELECT * FROM " + STUDENT_TABLE, null);
 
-        ArrayList<StudentModel> studentArrayList = new ArrayList<>();
+       ArrayList<StudentModel> studentArrayList = new ArrayList<>();
 
         if (cursorCourses.moveToFirst()) {
             do {
@@ -88,11 +88,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(STUDENT_ROLL,rollno);
         String Arg[] ={""+id};
         db.update(STUDENT_TABLE, cv, "StudentID=?", Arg);
-//        String query = "update "+STUDENT_TABLE+ " set "+
-//                STUDENT_NAME+"="+name+","+
-//               STUDENT_ROLL+"="+rollno+","+
-//                " where "+STUDENT_ID+"="+id+"";
-//        db.execSQL(query);
+
         db.close();
     }
 
