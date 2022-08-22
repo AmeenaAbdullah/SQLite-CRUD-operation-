@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 
 public class EditStudent extends AppCompatActivity {
 
@@ -23,6 +24,7 @@ public class EditStudent extends AppCompatActivity {
 
         EditText editName = findViewById(R.id.editname);
         EditText editRollNumber = findViewById(R.id.editrollno);
+        Switch switchIsActive = findViewById(R.id.switchStudent1);
         //get the intent extra from the ListDataActivity
         Intent receivedIntent = getIntent();
 
@@ -42,7 +44,7 @@ public class EditStudent extends AppCompatActivity {
             public void onClick(View view) {
 
                 MainActivity.dbHelper.deleteStudent(selectedID);
-                startActivity(new Intent(EditStudent.this, MainActivity.class));
+                startActivity(new Intent(EditStudent.this, Main.class));
                 finish();
             }
         });
@@ -54,8 +56,8 @@ public class EditStudent extends AppCompatActivity {
                 String r = editRollNumber.getText().toString();
                 Log.d("nameOFStudent",n);
                 Log.d("nameOFStudent",String.valueOf(selectedID));
-                MainActivity.dbHelper.updateData(n,r,selectedID);
-                startActivity(new Intent(EditStudent.this, MainActivity.class));
+                MainActivity.dbHelper.updateData(n,r,selectedID,switchIsActive.isChecked());
+                startActivity(new Intent(EditStudent.this, Main.class));
 
 
             }

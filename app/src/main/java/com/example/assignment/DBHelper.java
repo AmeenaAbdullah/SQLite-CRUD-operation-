@@ -81,11 +81,12 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-    public void updateData(String name,String rollno,int id){
+    public void updateData(String name,String rollno,int id,boolean isenroll){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv=new ContentValues();
         cv.put(STUDENT_NAME,name);
         cv.put(STUDENT_ROLL,rollno);
+        cv.put(STUDENT_ENROLL,isenroll);
         String Arg[] ={""+id};
         db.update(STUDENT_TABLE, cv, "StudentID=?", Arg);
 

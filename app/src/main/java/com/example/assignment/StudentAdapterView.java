@@ -23,10 +23,10 @@ public class StudentAdapterView extends ArrayAdapter<StudentModel> {
         StudentModel myclass = getItem(position);
         convertView = LayoutInflater.from(getContext()).inflate(R.layout.customized_studentview,parent,false);
         TextView name = convertView.findViewById(R.id.stuName);
-        TextView rollno = convertView.findViewById(R.id.stuenroll);
-        TextView isEnroll = convertView.findViewById(R.id.stuenroll);
+        TextView rollno = convertView.findViewById(R.id.sturollno);
+        TextView isEnroll = convertView.findViewById(R.id.isEnroll);
         name.setText(myclass.getName());
-        rollno.setText(myclass.getRollNmber());
+        rollno.setText(String.valueOf( myclass.getRollNmber()));
         isEnroll.setText(String.valueOf( myclass.isEnroll()));
 
         return convertView;
